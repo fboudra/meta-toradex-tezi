@@ -1,0 +1,4 @@
+MACHINE = "verdin-imx8mp"
+ACCEPT_FSL_EULA = "1"
+CORE_IMAGE_BASE_INSTALL:remove = "qt-tezi qt-tezictl"
+RM_WORK_EXCLUDE = " u-boot-toradex linux-toradex"
