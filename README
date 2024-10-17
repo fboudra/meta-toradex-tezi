@@ -3,47 +3,57 @@ OpenEmbedded/Yocto BSP layer for Toradex Easy Installer
 
 This layer is used to build the Toradex Easy Installer utility.
 It provides a small distro called "tezi" along with image recipes
-for the root file system and recipies for the Qt based UI.
+for the root file system and recipes for the Qt based UI.
 
 Currently the Qt User Interface as well as the utility flash-wince
 are not publicly available and stored on internal only git
 repositories. In order to build an image one needs to remove those
-two utilities from the image recipes.
+two utilities from the image recipe:
+
+```
+CORE_IMAGE_BASE_INSTALL:remove = "qt-tezi qt-tezictl"
+```
+
+As well as remove the recipes from recipes-tezi directory:
+
+```
+$ rm -rf recipes-tezi/flash-wince recipes-tezi/qt-tezi
+```
 
 This layer depends on:
 
 URI: git://git.openembedded.org/openembedded-core
 openembedded/meta
-branch: kirkstone
+branch: scarthgap
 revision: HEAD
 
 URI: git://git.openembedded.org/meta-openembedded
 meta-openembedded/meta-oe
-branch: kirkstone
+branch: scarthgap
 revision: HEAD
 
 URI: https://github.com/meta-qt5/meta-qt5
-branch: kirkstone
+branch: scarthgap
 revision: HEAD
 
 URI: git://git.yoctoproject.org/meta-freescale
-branch: kirkstone
+branch: scarthgap
 revision: HEAD
 
 URI: https://github.com/Freescale/meta-freescale-3rdparty
-branch: kirkstone
+branch: scarthgap
 revision: HEAD
 
 URI: git://git.toradex.com/meta-toradex-nxp
-branch: kirkstone
+branch: scarthgap
 revision: HEAD
 
 URI: git://git.toradex.com/meta-toradex-ti
-branch: kirkstone
+branch: scarthgap
 revision: HEAD
 
 URI: git://git.toradex.com/meta-toradex-bsp-common
-branch: kirkstone
+branch: scarthgap
 revision: HEAD
 
 Contributing
